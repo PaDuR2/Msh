@@ -1,13 +1,50 @@
+body{
+    margin-top: 0px;
+}
 .menu{
     list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    padding-right: 40px;
+    height: 100%;
+    margin-top: 0px;
 }
 .position{
     display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: space-around;
+        align-items: stretch;
+        justify-content: space-around;
+}
+.logo{
+    font-family: cursive;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: white;
+    background-color: #da392b;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 0px 5px 17px 1px #00000045;
 }
 .position > ul{
     margin: 0px;
     padding: 0px;
+}
+.main_menu{
+    font-family: system-ui;
+    background-color: #ffffff;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 0px 5px 17px 1px #00000045;
+}
+.menu > li{
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+    align-content: center;
+}
+.menu > li:hover{
+    background-color: #da392b;
+}
+.menu > li > a{
+    text-decoration: none;
+    color: black;
 }
