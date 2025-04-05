@@ -52,8 +52,8 @@ body{
     color: black;
 }
 .prev{
-    /* background-image: url('/images/content/head.jpg'); */
-    background-image: url(https://sun3-23.userapi.com/impf/hoPkAFec4l1dHp4-W1sW4Pz1s5CzHEpdgp0MkQ/K4x7FlwgHlM.jpg?size=1920x768&quality=95&crop=0,0,1920,767&sign=198292f3d203104948ae82ffa2de5680&type=cover_group);
+    background-image: url('/images/content/head.jpg');
+    /* background-image: url(https://sun3-23.userapi.com/impf/hoPkAFec4l1dHp4-W1sW4Pz1s5CzHEpdgp0MkQ/K4x7FlwgHlM.jpg?size=1920x768&quality=95&crop=0,0,1920,767&sign=198292f3d203104948ae82ffa2de5680&type=cover_group); */
     left: 0px;
     position: absolute;
     width: 100%;
@@ -63,4 +63,29 @@ body{
     background-size: contain;
     background-repeat: no-repeat;
     background-position-x: center;
+}
+.button_menu{
+    color: aliceblue;
+    position: relative;
+    z-index: 5;
+}
+.position_info_menu{
+    margin-top: 40px;
+    flex-wrap: wrap-reverse;
+    display: flex;
+    position: relative;
+    z-index: 5;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+}
+.btn{
+    box-shadow: 0px 5px 17px 1px #00000045;
+    border-style: none;
+    width: 150px;
+    height: 50px;
+    color: white;
+    z-index: 3;
+    position: relative;
+    background-color: #da392b;
 }
