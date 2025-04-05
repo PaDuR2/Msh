@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/cap.css">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
 
@@ -28,34 +29,47 @@
                     <p>Litle text</p>
                     <button class="btn">Заказать</button>                    
                 </div>
-                <iframe src="https://vk.com/video_ext.php?oid=-178882127&id=456242157&hd=2&autoplay=1" width="325" height="646" allow="encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>                    
+                <div class="plaer">
+                    <iframe src="https://vk.com/video_ext.php?oid=-178882127&id=456242157&hd=2&autoplay=1" width="325" height="646" allow="encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+                </div>                    
             </div>
         </header>
-        <main >
-            <div class="match_three">
-                <div class="card">
-                    <img src="images/content/LcvPTMnXSBw.jpg">
-                    <div class="lower_text">
-                        <h2>Text</h2>
-                        <p>Litle text</p>
+        <div class="container">
+            <div class="blocks-container">
+                <!-- Block 1 -->
+                <div class="block">
+                    <div class="block-image-container">
+                        <img src="images/content/LcvPTMnXSBw.jpg" alt="Nature" class="block-image">
+                    </div>
+                    <div class="block-content">
+                        <h3 class="block-title">Nature Exploration</h3>
+                        <p class="block-text">Discover the beauty of untouched landscapes and learn how to preserve our natural wonders for future generations. Our guided tours take you through breathtaking scenery while educating about conservation efforts.</p>
                     </div>
                 </div>
-                <div class="card">
-                    <img src="images/content/LcvPTMnXSBw.jpg">
-                    <div class="lower_text">
-                        <h2>Text</h2>
-                        <p>Litle text</p>
+                
+                <!-- Block 2 -->
+                <div class="block">
+                    <div class="block-image-container">
+                        <img src="images/content/LcvPTMnXSBw.jpg" alt="City" class="block-image">
+                    </div>
+                    <div class="block-content">
+                        <h3 class="block-title">Urban Adventures</h3>
+                        <p class="block-text">Explore vibrant cityscapes and uncover hidden gems in the world's most exciting metropolitan areas. From historic landmarks to modern architecture, experience cities like never before with our expert guides.</p>
                     </div>
                 </div>
-                <div class="card">
-                    <img src="images/content/LcvPTMnXSBw.jpg">
-                    <div class="lower_text">
-                        <h2>Text</h2>
-                        <p>Litle text</p>
+                
+                <!-- Block 3 -->
+                <div class="block">
+                    <div class="block-image-container">
+                        <img src="images/content/LcvPTMnXSBw.jpg" alt="Technology" class="block-image">
+                    </div>
+                    <div class="block-content">
+                        <h3 class="block-title">Tech Innovations</h3>
+                        <p class="block-text">Stay updated with the latest technological breakthroughs that are shaping our future and transforming industries. Our workshops and seminars bring you insights from leading experts in AI, robotics, and sustainable tech solutions.</p>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>        
         <script src="js/main.js" async defer></script>
     </body>
 </html>
