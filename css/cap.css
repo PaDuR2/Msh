@@ -33,12 +33,19 @@ header{
     z-index: 1;
     position: relative;
 }
-.logo{
+.img_logo{
+    width: 60px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
     font-family: cursive;
     padding-left: 50px;
     padding-right: 50px;
     color: white;
-    background-color: #da392b;
+    background-color: #ffffff;
     border-radius: 0px 0px 20px 20px;
     box-shadow: 0px 5px 17px 1px #00000045;
 }
