@@ -26,6 +26,7 @@ header{
     margin-bottom: 0px;
 }
 .position{
+    
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
@@ -77,6 +78,7 @@ header{
     z-index: 5;
 }
 .position_info_menu{
+    height: 500px;
     margin-top: 40px;
     flex-wrap: wrap-reverse;
     display: flex;
