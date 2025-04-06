@@ -149,8 +149,8 @@
         }
 
         .slider-dots button {
-            width: 15px;
-            height: 15px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             border: 2px solid white;
             background: transparent;
@@ -213,5 +213,9 @@
             
             .slide-caption h3 {
                 font-size: 1.2rem;
+            }
+            .slider-dots button {
+                width: 15px;
+                height: 15px;
             }
         }
