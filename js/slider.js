@@ -1,124 +1,100 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.querySelector('.slider');
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    const dotsContainer = document.querySelector('.slider-dots');
+$(document).ready(function() {
+    const $slider = $('.slider');
+    const $slides = $('.slide');
+    const $dotsContainer = $('.slider-dots');
+    const slideCount = $slides.length;
+    let currentIndex = 0;
+    let slideWidth = $('.slider-container').width();
+    let autoSlideInterval;
     
-    let currentSlide = 0;
-    const slideCount = slides.length;
-    let slideWidth = slider.clientWidth;
-    let isAnimating = false;
-
-    // Create dots
-    slides.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.addEventListener('click', () => {
-            if (!isAnimating && index !== currentSlide) {
-                goToSlide(index);
-            }
-        });
-        dotsContainer.appendChild(dot);
+    // Create dots for navigation
+    $slides.each(function(index) {
+        $dotsContainer.append('<div class="dot" data-index="' + index + '"></div>');
     });
-
-    const dots = document.querySelectorAll('.slider-dots button');
-    dots[0].classList.add('active');
-
-    // Set initial position
-    updateSliderPosition();
-
-    // Next slide
-    nextBtn.addEventListener('click', () => {
-        if (!isAnimating) {
-            currentSlide = (currentSlide + 1) % slideCount;
-            animateSlideTransition('next');
-        }
-    });
-
-    // Previous slide
-    prevBtn.addEventListener('click', () => {
-        if (!isAnimating) {
-            currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-            animateSlideTransition('prev');
-        }
-    });
-
-    // Auto-advance (optional)
-    let slideInterval = setInterval(() => {
-        if (!isAnimating) {
-            currentSlide = (currentSlide + 1) % slideCount;
-            animateSlideTransition('next');
-        }
-    }, 6000);
-
-    // Pause on hover
-    slider.addEventListener('mouseenter', () => {
-        clearInterval(slideInterval);
-    });
-
-    slider.addEventListener('mouseleave', () => {
-        slideInterval = setInterval(() => {
-            if (!isAnimating) {
-                currentSlide = (currentSlide + 1) % slideCount;
-                animateSlideTransition('next');
-            }
-        }, 6000);
-    });
-
-    function animateSlideTransition(direction) {
-        isAnimating = true;
-        
-        // Add animation classes based on direction
-        const currentActive = slides[currentSlide];
-        if (direction === 'next') {
-            currentActive.classList.add('slide-enter');
-        } else {
-            currentActive.classList.add('slide-enter');
-        }
-        
-        // Update slider position
-        updateSliderPosition();
-        updateDots();
-        
-        // Remove animation classes after animation completes
-        setTimeout(() => {
-            currentActive.classList.remove('slide-enter');
-            isAnimating = false;
-        }, 700);
-    }
-
-    function updateSliderPosition() {
-        slider.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-    }
-
-    function updateDots() {
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
-        });
-    }
-
-    function goToSlide(index) {
-        const direction = index > currentSlide ? 'next' : 'prev';
-        currentSlide = index;
-        animateSlideTransition(direction);
-    }
-
+    
+    const $dots = $('.dot');
+    
+    // Set initial state
+    updateSlider();
+    
     // Handle window resize
-    window.addEventListener('resize', () => {
-        slideWidth = slider.clientWidth;
-        updateSliderPosition();
+    $(window).resize(function() {
+        slideWidth = $('.slider-container').width();
+        updateSlider();
+    }).trigger('resize');
+    
+    // Next button click handler
+    $('.next').click(function() {
+        goToSlide((currentIndex + 1) % slideCount);
     });
-
-    // Add keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (!isAnimating) {
-            if (e.key === 'ArrowRight') {
-                currentSlide = (currentSlide + 1) % slideCount;
-                animateSlideTransition('next');
-            } else if (e.key === 'ArrowLeft') {
-                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-                animateSlideTransition('prev');
-            }
+    
+    // Previous button click handler
+    $('.prev').click(function() {
+        goToSlide((currentIndex - 1 + slideCount) % slideCount);
+    });
+    
+    // Dot click handler
+    $dots.on('click', function() {
+        const index = $(this).data('index');
+        goToSlide(index);
+    });
+    
+    // Handle touch events for mobile swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    $slider.on('touchstart', function(e) {
+        touchStartX = e.originalEvent.touches[0].clientX;
+        clearInterval(autoSlideInterval); // Pause auto-slide during interaction
+    });
+    
+    $slider.on('touchend', function(e) {
+        touchEndX = e.originalEvent.changedTouches[0].clientX;
+        handleSwipe();
+        startAutoSlide(); // Resume auto-slide
+    });
+    
+    function handleSwipe() {
+        const threshold = 50; // Minimum swipe distance
+        if (touchStartX - touchEndX > threshold) {
+            // Swipe left - next slide
+            goToSlide((currentIndex + 1) % slideCount);
+        } else if (touchEndX - touchStartX > threshold) {
+            // Swipe right - previous slide
+            goToSlide((currentIndex - 1 + slideCount) % slideCount);
         }
-    });
+    }
+    
+    // Update slider position and active dot
+    function updateSlider() {
+        const offset = -currentIndex * slideWidth;
+        $slider.css('transform', `translateX(${offset}px)`);
+        $dots.removeClass('active').eq(currentIndex).addClass('active');
+    }
+    
+    // Go to specific slide
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlider();
+    }
+    
+    // Auto-slide functionality
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(function() {
+            goToSlide((currentIndex + 1) % slideCount);
+        }, 5000);
+    }
+    
+    // Start auto-slide
+    startAutoSlide();
+    
+    // Pause auto-slide when hovering over slider (for desktop)
+    $('.slider-container').hover(
+        function() {
+            clearInterval(autoSlideInterval);
+        },
+        function() {
+            startAutoSlide();
+        }
+    );
 });
