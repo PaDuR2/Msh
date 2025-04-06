@@ -101,7 +101,11 @@ header{
     align-items: flex-start;
 }
 .position_info_menu {
+<<<<<<< HEAD
     height: 900px;
+=======
+    height: auto;
+>>>>>>> parent of d26e535 (fix)
     margin-top: 40px;
     flex-wrap: wrap-reverse;
     display: flex;

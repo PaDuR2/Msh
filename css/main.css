@@ -68,6 +68,37 @@ body {
     font-size: 1rem;
     line-height: 1.7;
 }
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .block {
+        flex-direction: row;
+    }
+    
+    .block-image-container {
+        flex: 1 1 100%;
+        max-width: 50%;
+    }
+    .blocks-container {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .block-content {
+        padding: 20px;
+    }
+    
+    .block-title {
+        font-size: 1.2rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .block:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
 .slider-container {
     width: 600px;
     margin: 0 auto;
@@ -107,50 +138,4 @@ body {
     padding: 5px 10px;
     margin: 0 5px;
     cursor: pointer;
-}
-.info_Onas_flex{
-    height: 400px;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-}
-.image_umka{
-    width: 100%;
-}
-.left_text{
-    display: flex;
-}
-
-
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .block {
-        flex-direction: row;
-    }
-    
-    .block-image-container {
-        flex: 1 1 100%;
-        max-width: 50%;
-    }
-    .blocks-container {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
-    .block-content {
-        padding: 20px;
-    }
-    
-    .block-title {
-        font-size: 1.2rem;
-    }
-}
-
-
-@media (max-width: 768px) {
-    .block:nth-child(even) {
-        flex-direction: row-reverse;
-    }
 }
