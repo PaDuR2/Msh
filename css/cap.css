@@ -140,11 +140,12 @@ header{
     .position_info_menu {
         margin-top: 40px;
         flex-wrap: wrap;
-        display: flex ;
+        display: flex;
         position: relative;
         z-index: 5;
         flex-direction: column-reverse;
         align-items: center;
+        align-content: center;
     }
     .main_menu{
         width: 100%;
