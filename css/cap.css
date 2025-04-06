@@ -102,10 +102,14 @@ header{
 }
 .position_info_menu {
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 900px;
 =======
     height: auto;
 >>>>>>> parent of d26e535 (fix)
+=======
+    height: 900px;
+>>>>>>> parent of 4adb787 (new_slider)
     margin-top: 40px;
     flex-wrap: wrap-reverse;
     display: flex;
