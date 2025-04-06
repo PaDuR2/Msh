@@ -47,9 +47,6 @@
 }
 
 .slider-dots {
-    bottom: 20px;
-    right: 0px;
-    left: 0px;
     display: flex;
     justify-content: center;
     margin-top: 10px;
