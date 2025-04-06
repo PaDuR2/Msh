@@ -90,21 +90,24 @@ header{
     text-decoration: none;
     color: black;
 }
-.button_menu{
+.button_menu {
+    display: flex;
     width: 400px;
     padding: 10px;
     color: aliceblue;
     position: relative;
     z-index: 5;
+    flex-direction: column;
+    align-items: flex-start;
 }
 .position_info_menu {
-    height: 500px;
+    height: 900px;
     margin-top: 40px;
     flex-wrap: wrap-reverse;
     display: flex;
     position: relative;
     z-index: 5;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-around;
     align-items: center;
 }
@@ -135,7 +138,19 @@ header{
 
 @media (max-width: 768px) {
     .position_info_menu {
-        height: 600px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        display: flex ;
+        position: relative;
+        z-index: 5;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .main_menu{
+        width: 100%;
+    }
+    .button_menu {
+        align-items: center;
     }
     .logo {
         width: 100%;

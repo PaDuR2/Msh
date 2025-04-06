@@ -93,10 +93,6 @@ body {
     }
 }
 
-/* Optional: Alternate image positions */
-/* .block:nth-child(even) {
-    flex-direction: row-reverse;
-} */
 
 @media (max-width: 768px) {
     .block:nth-child(even) {
