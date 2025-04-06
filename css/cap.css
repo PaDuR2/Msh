@@ -102,12 +102,8 @@ header{
 }
 .position_info_menu {
     height: 900px;
-<<<<<<< HEAD
-
     height: auto;
     height: 900px;
-=======
->>>>>>> parent of 4adb787 (new_slider)
     margin-top: 40px;
     flex-wrap: wrap-reverse;
     display: flex;
